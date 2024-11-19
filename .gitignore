@@ -1,0 +1,103 @@
+# Virtual Environment
+nenv/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Data files
+*.csv
+*.dat
+*.txt
+*.h5
+*.hdf5
+*.parquet
+*.feather
+*.pkl
+*.pickle
+*.npy
+*.npz
+
+# Documents
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+*.odt
+*.ods
+*.odp
+
+# Images
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.ico
+*.svg
+*.bmp
+*.tiff
+*.webp
+
+# Compressed files
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.bz2
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.project
+.classpath
+.settings/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# R
+.Rhistory
+.Rdata
+.Ruserdata
