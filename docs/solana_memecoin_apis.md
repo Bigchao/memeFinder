@@ -81,21 +81,44 @@ const response = await axios.get(
 ```
 
 ### 2.4 Nansen API
-- **接口地址**: https://api.nansen.ai
+- **接口文档**: https://api-docs.nansen.ai/reference/introduction
 - **特点**:
   - 提供智能钱包标签和分类
   - 专业的链上数据分析
   - 支持多链数据（包括Solana）
   - 提供钱包行为画像
   - 实时热门代币追踪
+  - 全面的API端点支持：
+    * 地址分析 (Address Analysis)
+    * 实体分析 (Entity Analysis)
+    * 交易所流向 (Exchange Flows)
+    * 智能资金追踪 (Smart Money)
+    * 交易信号 (Trading Signals)
+    * 代币分析 (Token Analysis)
+    * NFT分析 (NFT Analysis)
 - **限制**:
+  - 需要申请早期访问权限
   - 仅面向机构用户
   - 价格较高
   - 需要商务洽谈
 - **示例**:
 ```javascript
+// 获取地址详情
 const response = await axios.get(
-  'https://api.nansen.ai/v1/solana/token/transactions',
+  'https://api.nansen.ai/v1/address/details',
+  {
+    headers: {
+      'X-API-KEY': 'YOUR_API_KEY'
+    },
+    params: {
+      address: walletAddress
+    }
+  }
+);
+
+// 获取智能资金流向
+const smartMoneyFlows = await axios.get(
+  'https://api.nansen.ai/v1/smart-money/token-flows',
   {
     headers: {
       'X-API-KEY': 'YOUR_API_KEY'
@@ -104,6 +127,16 @@ const response = await axios.get(
       token_address: tokenAddress,
       start_time: startTimestamp,
       end_time: endTimestamp
+    }
+  }
+);
+
+// 获取交易信号
+const tradingSignals = await axios.get(
+  'https://api.nansen.ai/v1/signal/trading',
+  {
+    headers: {
+      'X-API-KEY': 'YOUR_API_KEY'
     }
   }
 );
