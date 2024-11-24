@@ -5,6 +5,7 @@
 ### 1.1 硬件钱包方案
 
 #### Ledger
+- **官方文档**: https://docs.ledger.com/
 - **优势**:
   - 最高级别的私钥安全性
   - 支持多链资产管理
@@ -24,6 +25,7 @@
 ### 1.2 软件钱包方案
 
 #### Phantom
+- **官方文档**: https://docs.phantom.app/
 - **优势**:
   - 用户基数最大
   - 开发接入简单
@@ -40,6 +42,7 @@
   - 需要广泛用户基础的项目
 
 #### Solflare
+- **官方文档**: https://docs.solflare.com/
 - **优势**:
   - 原生支持Solana
   - 完整的API功能
@@ -55,6 +58,7 @@
 ### 1.3 托管钱包方案
 
 #### Fireblocks
+- **官方文档**: https://docs.fireblocks.com/
 - **优势**:
   - 机构级安全性
   - 完整的API支持
@@ -70,75 +74,46 @@
   - 交易所
   - 需要合规性的项目
 
-#### GMGN解决方案
-- **技术特点**:
-  - 私钥分片存储
-  - 多层加密保护
-  - API完整支持
-  - 支持自动化交易
-  - 定制化开发
-- **优势**:
-  - 安全性高
-  - 支持高频交易
-  - 灵活的API
-  - 成本相对较低
-  - 专注Solana生态
-- **劣势**:
-  - 生态相对封闭
-  - 技术较新
-  - 需要技术支持
-- **适用场景**:
-  - 高频交易
-  - 自动化交易
-  - 需要定制化的项目
-
 ## 2. 功能对比分析
 
 ### 2.1 安全性评分（满分5分）
 1. Fireblocks: ⭐⭐⭐⭐⭐
 2. Ledger: ⭐⭐⭐⭐⭐
-3. GMGN: ⭐⭐⭐⭐
-4. Solflare: ⭐⭐⭐⭐
-5. Phantom: ⭐⭐⭐
+3. Solflare: ⭐⭐⭐⭐
+4. Phantom: ⭐⭐⭐
 
 ### 2.2 API完整性（满分5分）
 1. Fireblocks: ⭐⭐⭐⭐⭐
-2. GMGN: ⭐⭐⭐⭐⭐
-3. Solflare: ⭐⭐⭐⭐
-4. Phantom: ⭐⭐⭐
-5. Ledger: ⭐⭐⭐
+2. Solflare: ⭐⭐⭐⭐
+3. Phantom: ⭐⭐⭐
+4. Ledger: ⭐⭐⭐
 
 ### 2.3 开发友好度（满分5分）
 1. Phantom: ⭐⭐⭐⭐⭐
-2. GMGN: ⭐⭐⭐⭐
-3. Solflare: ⭐⭐⭐⭐
-4. Fireblocks: ⭐⭐⭐
-5. Ledger: ⭐⭐
+2. Solflare: ⭐⭐⭐⭐
+3. Fireblocks: ⭐⭐⭐
+4. Ledger: ⭐⭐
 
 ### 2.4 成本评估（满分5分，越高越便宜）
 1. Phantom: ⭐⭐⭐⭐⭐
 2. Solflare: ⭐⭐⭐⭐⭐
-3. GMGN: ⭐⭐⭐
-4. Ledger: ⭐⭐
-5. Fireblocks: ⭐
+3. Ledger: ⭐⭐
+4. Fireblocks: ⭐
 
 ## 3. 场景适用性分析
 
 ### 3.1 高频交易
 最佳选择：
-1. GMGN（专为高频交易优化）
-2. Fireblocks（机构级支持）
-3. Solflare（API支持完善）
+1. Solflare（API支持完善）
+2. Phantom（易于使用）
 
 不建议：
 - Ledger（需要物理确认）
-- Phantom（API限制较多）
 
 ### 3.2 资产安全性
 最佳选择：
 1. Ledger（冷钱包最安全）
 2. Fireblocks（机构级安全）
-3. GMGN（多重加密）
 
 可选：
 - Solflare（支持硬件钱包）
@@ -147,8 +122,7 @@
 ### 3.3 开发便利性
 最佳选择：
 1. Phantom（集成最简单）
-2. GMGN（API文档完善）
-3. Solflare（开发支持好）
+2. Solflare（开发支持好）
 
 谨慎考虑：
 - Fireblocks（接入复杂）
@@ -157,19 +131,16 @@
 ## 4. 特殊功能支持
 
 ### 4.1 自动化交易
-- GMGN: 完整支持
 - Fireblocks: 支持但需定制
 - 其他: 有限支持或不支持
 
 ### 4.2 多签名支持
 - Fireblocks: 原生支持
 - Solflare: 支持
-- GMGN: 支持
 - 其他: 有限支持
 
 ### 4.3 机构级功能
 - Fireblocks: 完整支持
-- GMGN: 部分支持
 - 其他: 基础支持或不支持
 
 ## 5. 选择建议
@@ -178,16 +149,13 @@
 推荐方案：
 1. Phantom（简单易用）
 2. Solflare（功能完整）
-3. GMGN（如需高频交易）
 
 ### 5.2 机构/企业
 推荐方案：
 1. Fireblocks（完整解决方案）
-2. GMGN（性价比高）
-3. Ledger（高安全性需求）
+2. Ledger（高安全性需求）
 
 ### 5.3 特殊需求
-- 高频交易: GMGN
 - 最高安全性: Ledger/Fireblocks
 - 快速开发: Phantom
-- 深度定制: GMGN/Fireblocks 
+- 深度定制: Fireblocks 
