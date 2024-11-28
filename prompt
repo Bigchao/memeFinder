@@ -1,0 +1,15 @@
+Create a bot that parses Twitter pages and Telegram channels of famous Solana KOLs and searches for promising memecoins tickers. Make sure to include these accounts:
+https://x.com/CryptoNobler
+https://x.com/Danny_Crypton
+https://x.com/DefiWimar
+ 
+Adjust the code so it finds these tickers on https://pump.fun/board and https://dexscreener.com/ using the contract addresses mentioned in KOLs' tweets.
+ 
+Adjust the code so it analyzes the project's twitter page via https://x.com/TweetScout_io
+Check the overall score, known followers and the trust level.
+ 
+Adjust the code so it checks the contract score via solsniffer.com and skip the coin if the score is lower than 85
+ 
+Create buy and sell modules for coin on Solana, set priority fees, buy amount to 1 SOL, buy & sell slippage to 15% and take profit levels at 10x leaving a moonbag of 15%.
+ 
+Merge every code snippet you send above to a single file and fix all the errors. Create a step-by-step guide on how to run the code.
