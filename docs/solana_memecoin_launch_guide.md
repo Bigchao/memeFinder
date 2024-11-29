@@ -1,155 +1,162 @@
-# Solana Memecoin 发布指南
+# Solana Memecoin 发布详细指南 - 第一部分
 
 ## 1. 前期准备
 
-### 1.1 技术准备
-- **开发环境**
-  - [Solana CLI工具](https://docs.solana.com/cli/install-solana-cli-tools)
-  - [Rust开发环境](https://www.rust-lang.org/tools/install)
-  - [Node.js环境](https://nodejs.org/)
+### 1.1 技术环境搭建
+1. **Solana CLI工具安装**
+   ```bash
+   sh -c "$(curl -sSfL https://release.solana.com/v1.17.0/install)"
+   ```
+   - 验证安装：`solana --version`
+   - 配置网络：`solana config set --url mainnet-beta`
+   - 创建钱包：`solana-keygen new`
 
-### 1.2 代币标准
-- **SPL Token标准**
-  - [SPL Token官方文档](https://spl.solana.com/token)
-  - [Token Program说明](https://docs.solana.com/developing/runtime-facilities/programs#bpf-loader)
+2. **Rust环境配置**
+   ```bash
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   rustup component add rustfmt
+   rustup component add clippy
+   ```
+   - 安装Solana BPF工具链：
+   ```bash
+   sh -c "$(curl -sSfL https://release.solana.com/v1.17.0/install)"
+   ```
 
-### 1.3 开发工具
-- **推荐IDE**
-  - [Visual Studio Code](https://code.visualstudio.com/)
-  - [Solana插件](https://marketplace.visualstudio.com/items?itemName=solana.solana)
+3. **Node.js环境**
+   - 通过[官网](https://nodejs.org/)下载安装
+   - 建议使用LTS版本
+   - 安装必要的全局包：
+   ```bash
+   npm install -g @solana/web3.js
+   npm install -g @solana/spl-token
+   ```
 
-## 2. 代币创建流程
+### 1.2 代币标准详解
+1. **SPL Token标准要求**
+   - 代币名称规范
+   - 符号规范（2-8个字符）
+   - 小数位数（通常为9位）
+   - 元数据要求
+   - 权限设置选项
 
-### 2.1 创建代币
-1. **使用Solana CLI**
-```bash
-solana-keygen new --outfile token-keypair.json
-spl-token create-token token-keypair.json
-```
+2. **Token Program功能**
+   - 铸币（Mint）
+   - 转账（Transfer）
+   - 冻结（Freeze）
+   - 销毁（Burn）
+   - 授权委托（Delegate）
 
-2. **使用代币创建工具**
-- [Token Creator工具](https://github.com/solana-labs/token-creator)
-- [SPL Token UI](https://spl-token-ui.com/)
+3. **元数据设置**
+   - 名称（Name）
+   - 符号（Symbol）
+   - 图标URI（Icon）
+   - 描述（Description）
+   - 其他自定义属性
 
-### 2.2 设置代币参数
-- **基本参数**
-  - 名称
-  - 符号
-  - 小数位数
-  - 总供应量
-  - 铸币权限
+### 1.3 开发环境配置
+1. **Visual Studio Code设置**
+   - 安装Solana插件
+   - 安装Rust插件
+   - 安装Git插件
+   - 配置代码格式化
 
-### 2.3 代币部署
-- **主网部署**
-  - [部署指南](https://docs.solana.com/developing/deployed-programs/overview)
-  - 部署费用说明
+2. **推荐的扩展插件**
+   - Solana Explorer
+   - Rust Analyzer
+   - Better TOML
+   - GitLens
 
-## 3. 流动性提供
+3. **调试工具配置**
+   - 设置断点调试
+   - 日志输出
+   - 测试框架
 
-### 3.1 DEX选择
-- **主流DEX**
-  - [Raydium](https://raydium.io/pools) - [开发文档](https://docs.raydium.io/)
-  - [Orca](https://www.orca.so/) - [开发文档](https://docs.orca.so/)
-  - [Jupiter](https://jup.ag/) - [开发文档](https://docs.jup.ag/)
+## 2. 代币创建详细流程
 
-### 3.2 流动性池创建
-1. **Raydium流动性池**
-   - [创建指南](https://raydium.gitbook.io/raydium/)
-   - 所需资金计算
-   - 费用设置
+### 2.1 代币创建步骤
+1. **准备工作**
+   ```bash
+   # 创建项目目录
+   mkdir my-memecoin
+   cd my-memecoin
+   
+   # 初始化git仓库
+   git init
+   
+   # 创建代币密钥对
+   solana-keygen new --outfile token-keypair.json
+   ```
 
-2. **Orca流动性池**
-   - [创建流程](https://docs.orca.so/reference/pool-creation)
-   - 参数配置
+2. **创建代币**
+   ```bash
+   # 创建代币
+   spl-token create-token token-keypair.json
+   
+   # 创建代币账户
+   spl-token create-account <token-address>
+   
+   # 铸造代币
+   spl-token mint <token-address> <amount> <recipient-address>
+   ```
 
-## 4. 营销与推广
+3. **使用图形界面工具**
+   - SPL Token UI步骤
+     * 连接钱包
+     * 填写代币信息
+     * 设置供应量
+     * 确认创建
 
-### 4.1 信息披露
-- **必要信息**
-  - [代币合约地址](https://explorer.solana.com/)
-  - [代币经济学](https://docs.solana.com/economics/overview)
-  - 团队信息
-  - 路线图
+### 2.2 代币参数详细配置
+1. **基本参数设置**
+   - **名称要求**
+     * 长度限制
+     * 字符规范
+     * 避免敏感词
 
-### 4.2 社区建设
-- **社交媒体**
-  - Twitter/X
-  - Discord
-  - Telegram
-  - Medium
+   - **符号设置**
+     * 大写字母
+     * 长度2-8字符
+     * 避免常见符号
 
-### 4.3 代币分发
-- **空投策略**
-  - [Metaplex Candy Machine](https://docs.metaplex.com/)
-  - [空投工具](https://github.com/solana-labs/solana-program-library/tree/master/token/cli)
+   - **小数位数**
+     * 推荐使用9位
+     * 考虑使用场景
+     * 与主流代币保持一致
 
-## 5. 安全考虑
+2. **供应量设置**
+   - **初始供应量**
+     * 考虑市场需求
+     * 参考同类项目
+     * 预留发展空间
 
-### 5.1 合约安全
-- **审计服务**
-  - [Certik](https://www.certik.com/)
-  - [Hacken](https://hacken.io/)
-  - [SlowMist](https://www.slowmist.com/)
+   - **最大供应量**
+     * 是否设置上限
+     * 增发机制
+     * 通胀控制
 
-### 5.2 权限管理
-- **多重签名**
-  - [Squads Protocol](https://docs.squads.so/)
-  - [Multisig指南](https://docs.solana.com/developing/programming-model/accounts#multisig)
+3. **权限设置**
+   - **铸币权限**
+     * 是否保留铸币权
+     * 多签名控制
+     * 时间锁定
 
-## 6. 监控与维护
+   - **冻结权限**
+     * 是否启用
+     * 使用场景
+     * 风险控制
 
-### 6.1 链上监控
-- **监控工具**
-  - [Solscan](https://solscan.io/)
-  - [Solana Beach](https://solanabeach.io/)
-  - [Birdeye](https://birdeye.so/)
+### 2.3 代币部署流程
+1. **测试网部署**
+   - 获取测试代币
+   - 验证功能
+   - 检查性能
 
-### 6.2 市场监控
-- **数据分析**
-  - [DexScreener](https://dexscreener.com/)
-  - [CoinGecko API](https://www.coingecko.com/api/documentation)
+2. **主网部署准备**
+   - 准备部署资金
+   - 检查代码安全
+   - 准备应急预案
 
-## 7. 法律合规
-
-### 7.1 法律咨询
-- **合规指南**
-  - [SEC指南](https://www.sec.gov/crypto-assets)
-  - [FATF指南](https://www.fatf-gafi.org/)
-
-### 7.2 风险提示
-- **免责声明**
-  - 市场风险
-  - 技术风险
-  - 监管风险
-
-## 8. 有用工具和资源
-
-### 8.1 开发工具
-- [Anchor Framework](https://www.anchor-lang.com/)
-- [Solana Playground](https://beta.solpg.io/)
-- [Solana Program Library](https://spl.solana.com/)
-
-### 8.2 测试网资源
-- [Devnet Faucet](https://solfaucet.com/)
-- [测试网浏览器](https://explorer.solana.com/?cluster=devnet)
-
-### 8.3 社区资源
-- [Solana Stack Exchange](https://solana.stackexchange.com/)
-- [Solana Discord](https://discord.com/invite/solana)
-- [Solana Forums](https://forums.solana.com/)
-
-## 9. 参考文档
-
-### 9.1 官方文档
-- [Solana文档](https://docs.solana.com/)
-- [SPL Token文档](https://spl.solana.com/token)
-- [Metaplex文档](https://docs.metaplex.com/)
-
-### 9.2 开发指南
-- [Solana Cookbook](https://solanacookbook.com/)
-- [Solana开发教程](https://buildspace.so/solana)
-- [Anchor教程](https://book.anchor-lang.com/)
-
-### 9.3 安全指南
-- [Solana安全最佳实践](https://docs.solana.com/developing/security-best-practices)
-- [智能合约安全指南](https://github.com/slowmist/solana-smart-contract-security-best-practices) 
+3. **部署操作**
+   - 部署合约
+   - 验证代码
+   - 初始化参数 
